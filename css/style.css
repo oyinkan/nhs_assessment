@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Lato", sans-serif;
+  background-image: url("../images/bg-image.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 2rem 5.5rem;
+  padding-bottom: 4rem;
+  color: white;
+}
+#contact-us > div {
+  width: 60%;
+  margin: 4rem auto;
+}
+#contact-us h1 {
+  font-size: 6.4rem;
+  margin-bottom: 2rem;
+}
+.text-center {
+  text-align: center;
+}
+#contact-us p {
+  font-size: 3.2rem;
+}
+#contact-form {
+  background-color: rgba(200, 200, 200, 0.3);
+  padding: 2rem;
+  width: 60%;
+  margin: auto;
+  border-radius: 1rem;
+}
+#contact-form > div {
+  margin-bottom: 1.2rem;
+}
+#contact-form label {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+#contact-form .form-element {
+  height: 6rem;
+  font-size: 1.6rem;
+  color: #111729;
+  margin-top: 5px;
+  margin-bottom: 1rem;
+}
+#contact-form .form-element,
+button {
+  width: 100%;
+  border-radius: 1.5rem;
+  border: 0;
+  padding: 1.5rem 2rem;
+}
+#contact-form span {
+  font-size: 1.3rem;
+  color: #ccc;
+}
+.flexbox {
+  display: flex;
+  gap: 1.5rem;
+}
+.flexbox > div {
+  width: 50%;
+}
+button {
+  font-size: 2rem;
+  color: #4036a9;
+  font-weight: bold;
+}
+button:hover {
+  background-color: #4036a9;
+  color: #fff;
+  border-bottom: 1px solid;
+}
+
+@media screen and (max-width: 767px) {
+  #contact-us > div,
+  #contact-form {
+    width: 100%;
+  }
+  #contact-us h1 {
+    font-size: 5.4rem;
+  }
+  #contact-us p {
+    font-size: 2.2rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  body {
+    padding: 2rem;
+    padding-bottom: 4rem;
+  }
+  #contact-us h1 {
+    font-size: 3.5rem;
+  }
+  #contact-us p {
+    font-size: 1.6rem;
+  }
+  .flexbox {
+    flex-direction: column;
+  }
+  .flexbox > div {
+    width: 100%;
+  }
+  #contact-form .form-element {
+    height: auto;
+  }
+}
