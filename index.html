@@ -29,6 +29,7 @@
                 placeholder="Ethan"
                 required
                 aria-describedby="fname_help"
+                oninput="handleChange(id, value)"
               />
               <span id="fname_help" aria-live="polite"
                 >Add your first name</span
@@ -45,6 +46,7 @@
                 placeholder="Johnson"
                 required
                 aria-describedby="lname_help"
+                oninput="handleChange(id, value)"
               />
               <span id="lname_help">Add your last name</span>
             </div>
@@ -59,6 +61,7 @@
               placeholder="ethan@johnson.com"
               required
               aria-describedby="email_address_help"
+              oninput="handleChange(id, value)"
             />
             <span id="email_address_help">Enter a valid email address</span>
           </div>
@@ -72,6 +75,7 @@
                 class="form-element"
                 required
                 aria-describedby="password_help"
+                oninput="handleChange(id, value)"
               />
               <div id="password_help">
                 <span id="min_char"
@@ -98,6 +102,7 @@
                 class="form-element"
                 required
                 aria-describedby="confirm_password_help"
+                oninput="handleChange(id, value)"
               />
               <span id="confirm_password_help"
                 >Value must be the same as password input</span
