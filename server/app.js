@@ -18,8 +18,28 @@ const server = http.createServer((req, res) => {
     res.end();
     return;
   }
+
+  if (req.method === "POST" && pathname === "/register") {
+    let body = "";
+
+    req.on("data", (chunk) => {
+      body += chunk.toString();
+    });
+
+    req.on("end", () => {
+      const parsedBody = JSON.parse(body);
+      console.log({ ...parsedBody, timestamp: new Date().toISOString() });
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ message: "Form submitted successfully!" }));
+    });
+  } else {
+    res.writeHead(404, { "Content-Type": "text/plain" });
+    res.end("Not Found");
+  }
 });
 
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
+
+module.exports = server;
