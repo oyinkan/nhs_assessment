@@ -1,5 +1,7 @@
 const http = require("http");
 const url = require("url");
+const {validate} = require("./validate");
+
 const hostname = "127.0.0.1";
 const port = 5000;
 
@@ -28,9 +30,17 @@ const server = http.createServer((req, res) => {
 
     req.on("end", () => {
       const parsedBody = JSON.parse(body);
-      console.log({ ...parsedBody, timestamp: new Date().toISOString() });
-      res.writeHead(200, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({ message: "Form submitted successfully!" }));
+      if (validate(parsedBody).length > 0) {
+        res.writeHead(403, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ message: "Invalid Form Data" }));
+      } else {
+        console.log("Form Data:", {
+          ...parsedBody,
+          timestamp: new Date().toISOString(),
+        });
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ message: "Form submitted successfully!" }));
+      }
     });
   } else {
     res.writeHead(404, { "Content-Type": "text/plain" });

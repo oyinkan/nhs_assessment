@@ -38,4 +38,22 @@ describe("Server Tests", () => {
         done();
       });
   });
+
+  it("should handle POST /register with invalid data", (done) => {
+    request(server)
+      .post("/register")
+      .send({
+        fname: "",
+        lname: "",
+        email_address: "",
+        password: "",
+      })
+      .expect("Content-Type", /application\/json/)
+      .expect(403)
+      .end((err, res) => {
+        if (err) return done(err);
+        expect(res.body).to.have.property("message", "Invalid Form Data");
+        done();
+      });
+  });
 });
